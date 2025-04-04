@@ -1,0 +1,26 @@
+.category-Filter{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.category-list{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
+}
+
+.category-item{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+}
+
+.category-checkbox{
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
