@@ -4,36 +4,36 @@ using WaterProject.API.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<WaterDbContext>(options => 
+builder.Services.AddDbContext<WaterDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("WaterConnection")));
 
+// ✅ Add CORS policy to allow your deployed frontend
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactAppBlah", 
-        policy =>
+    options.AddPolicy("AllowFrontendApp", policy =>
     {
-        policy.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
+        policy.WithOrigins("https://gray-rock-09e059c1e.6.azurestaticapps.net")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Use CORS before other middleware
+app.UseCors("AllowFrontendApp");
+
+// Swagger only in development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowReactAppBlah");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
