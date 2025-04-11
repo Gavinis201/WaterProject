@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontendApp", policy =>
     {
-        policy.WithOrigins("https://gray-rock-09e059c1e.6.azurestaticapps.net")
+        policy.WithOrigins("https://gray-rock-09e059c1e.6.azurestaticapps.net/")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
