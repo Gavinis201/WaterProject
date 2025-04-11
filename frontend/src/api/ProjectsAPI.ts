@@ -1,4 +1,3 @@
-import NewProjectForm from "../components/NewProjectsForm";
 import { Project } from "../types/Project";
 
 interface FetchProjectsResponse {

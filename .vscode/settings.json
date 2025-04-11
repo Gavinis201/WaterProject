@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/5a925bc1-6a31-437d-9e97-179fa286bad5/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/WaterProject-Gavin-V2",
+    "appService.deploySubpath": "backend/WaterProject.API/publish"
+}
